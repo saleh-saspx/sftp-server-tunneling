@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  go-ssh-app:
+    build: .
+    ports:
+      - "8112:8080"
+    environment:
+      - GO_ENV=production
+    restart: unless-stopped
