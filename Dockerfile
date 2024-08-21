@@ -1,12 +1,16 @@
-FROM golang:1.18
+FROM golang:1.20
 
 ENV GOPROXY=https://goproxy.cn,direct
 
 WORKDIR /app
 
+COPY go.mod go.sum ./
+RUN go mod download
+
 COPY . .
 
 RUN go mod tidy
+RUN go build -o main
 
 RUN sed -i 's|http://deb.debian.org|http://mirrors.ustc.edu.cn|g' /etc/apt/sources.list && \
     apt-get update && \
