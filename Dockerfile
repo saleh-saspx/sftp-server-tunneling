@@ -15,5 +15,3 @@ RUN sed -i 's|http://deb.debian.org|http://mirrors.ustc.edu.cn|g' /etc/apt/sourc
     apt-get clean
 
 EXPOSE 8080
-
-CMD ["./go-ssh-app"]
