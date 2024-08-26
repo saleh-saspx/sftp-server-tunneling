@@ -1,8 +1,6 @@
 FROM golang:1.20
 
-ENV GOPROXY=https://goproxy.cn,direct
-
-WORKDIR /app
+    WORKDIR /app
 
 COPY go.mod go.sum ./
 RUN go mod download
